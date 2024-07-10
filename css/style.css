@@ -370,6 +370,11 @@ h4{
     background: #f9f9f9 !important;
     border: none !important;
 }
+.profile_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .background{
     width: 100%;
     height: auto;
