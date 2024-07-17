@@ -701,9 +701,6 @@ input{
     h4{
         font-size: 20px !important;
     }
-    .slide{
-        flex-direction: column;
-    }
     .img_profile_1{
         width: 25%;
     }
