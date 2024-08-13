@@ -23,7 +23,7 @@
       <nav class="navbar">
         <div class="container">
           <div class="nav_align">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="images/logo.png" class="logo" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
               <span class="navbar_toggle_icon"><i class="fas fa-bars"></i></span>
             </button>
@@ -110,7 +110,7 @@
     <div class="col-lg img_portion" data-aos="fade-down" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"><img src="images/img_6.jpg" alt=""><h4>Technician</h4></div>
   </div>
 </div>
-<h2 class="text-center mt-4 app_heading">App Stat</h2>
+<h2 class="text-center mt-5 app_heading">App Stat</h2>
 <p class="text_4 text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, ducimus deleniti cumque fugiat dolorum</p>
 
 <div class="container">
@@ -232,7 +232,7 @@
   </div>
   <h2 class="text-center our_client">Our clients say</h2>
   <div class="line m-auto"><div class="line_inner m-auto"></div></div>
-  <p class="text_7 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id est facilis quasodio  <br> accusamus quisquam corporis provident autem expedita</p>
+  <p class="text_7 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id est facilis quasodio accusamus quisquam corporis provident autem expedita</p>
   
    <div class="card_area">
     <div class="card_list">
@@ -308,23 +308,21 @@
 
 <section class="background mt-5">
   <div class="form_portion p-3">
-    <h3 class="text-center text-capitalize">Get in touch</h3>
+    <h3 class="text-center text-capitalize get_in">Get in touch</h3>
     <div class="row mt-5 form_align">
       <div class="col-lg left_form">
         <div class="row callus_portion">
           <div class="col-lg-2"><div class="icon_back"><i class="fas fa-mobile"></i></div></div>
-          <div class="col-lg-10"><p class="text_9 mb-0 text-uppercase">call us</p><strong class="call_num">9748903686</strong></div>
+          <div class="col-lg-10"><p class="text_9 mb-0 text-uppercase">call us</p><strong class="call_num"><a href="#">9748903686</a></strong></div>
         </div>
         <div class="row mt-5 envelope_portion">
           <div class="col-lg-2"><div class="icon_back"><i class="fas fa-envelope"></i></div></div>
-          <div class="col-lg-10"><p class="text_9 m-0 text-uppercase">mail us</p><strong class="email">hello@the360.in</strong></div>
+          <div class="col-lg-10"><p class="text_9 m-0 text-uppercase">mail us</p><strong class="email"><a href="#">hello@the360.in</a></strong></div>
         </div>
       </div>
-      <div class="or_section">
-        or
-      </div>
+
       <div class="col-lg form_input_portion">
-        <form action="" class="form_area">
+       <!--- <form onclick="submitForm()" action="" class="form_area" method="post">
           <input type="text" maxlength="50"  class="mb-3 p-2 " placeholder="name" required>
          
           <input type="tel" maxlength="10" class="mb-3 p-2" placeholder="phone" required>
@@ -332,7 +330,39 @@
           <input type="email" class="p-2" placeholder="email" required>
         
           <button type="submit" class="mt-4 py-2 px-4 text-capitalize contact">contact us</button>
-        </form>
+        </form>-->
+
+        
+        
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="form">
+        
+            <input type="hidden" name="access_key" value="48581a13-6546-4182-9eca-9a8d8d42ba82" />
+            <input type="hidden" name="subject" value="New Contact Form Submission" />
+            <input type="hidden" name="from_name" value="My Website" />
+            <!-- More custom ization options available in the docs: https://docs.web3forms.com -->
+        
+            <div class="form-group-container">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" name="name" maxlength="50" class="form-input" placeholder="Your name" type="text"  required/>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" maxlength="50" class="form-input" placeholder="Your email" type="email"  required/>
+              </div>
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone</label>
+                <input id="phone" name="phone" maxlength="10" class="form-input" placeholder="+91 (234) 56789" type="tel"  required/>
+              </div>
+            </div>
+            <button class="form-submit" type="submit" onclick="SubmitForm()">Send Message</button>
+          </form>
+        
+    
+
+
+
+
       </div>
     </div>
   </div>
@@ -448,9 +478,14 @@
       
     })
     ScrollTrigger.create({
-      start: 'top -80',
+      start: 'top -100',
       end: 99999,
       toggleClass: {className: 'nav_back--scrolled', targets: '.nav_back'}
+    })
+    ScrollTrigger.create({
+      start: 'top -80',
+      end: 99999,
+      toggleClass: {className: 'logo--scrolled', targets: '.logo'}
     });
   </script>
 
@@ -458,11 +493,35 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script type="text/javascript">
     $('.card_area').slick({
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
         dots: true,
+        responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: true,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
     });
   </script>
 
